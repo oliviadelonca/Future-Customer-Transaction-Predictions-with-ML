@@ -2,7 +2,7 @@
 
 This project is the result of my work during a Boston Consulting Group data challenge organized in February 2026. 
 The goal was to create a machine learning model that predicts if a customer will purchase again, starting the 1st of October 2012.
-It is the opportunity to manipulate data and to build a classification model.
+It was the opportunity to manipulate data and to build a classification model.
 
 ---
 
