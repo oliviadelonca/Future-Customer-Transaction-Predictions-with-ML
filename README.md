@@ -16,15 +16,29 @@ It was the opportunity to manipulate data and to build a classification model.
 
 ## Data
 
-### 1. transaction_data.csv
+The raw data comes from the BCG data challenge and is not included in this repository. The notebook expects two CSV files in the same folder (`DATA_DIR = "./"`): `transactions_data.csv` and `product_data.csv`. This section describes them so the notebook can be read without the files.
 
-Contains the products bought (product_id), the number of units bought (purchased_quantity), the price of the product per unit (unit_product_price),
-the ID of a group of products bought together in a single order (transaction_id), the customer ID (customer_id), and the transaction date
-(transaction_date).
+### 1. `transactions_data.csv`
 
-### 1. product_data.csv
+One row per product line in an order (42,820 rows, 6 columns, no missing values).
 
-Contains the same products bought (product_id), and the color of the product if registered (color).
+| Column | Type | Description |
+|---|---|---|
+| `transaction_id` | int | ID of an order. Products bought together share the same ID (2,461 distinct orders). |
+| `product_id` | int | ID of the product bought (2,993 distinct products). |
+| `purchased_quantity` | int | Number of units bought. Negative values (~940 rows) correspond to returns or cancellations. |
+| `transaction_date` | string | Date and time of the order, formatted `dd/mm/yyyy HH:MM` (day first). Ranges from 5 January 2012 to 12 January 2013. |
+| `unit_product_price` | float | Price of one unit of the product. |
+| `customer_id` | int | ID of the customer (487 distinct customers). |
+
+### 2. `product_data.csv`
+
+One row per product (2,993 rows, 2 columns, `product_id` is unique).
+
+| Column | Type | Description |
+|---|---|---|
+| `product_id` | int | Product ID, used to join with `transactions_data.csv`. |
+| `color` | string | Color of the product: black, white, blue, red, green or yellow. Missing for 48 products. |
 
 ---
 
